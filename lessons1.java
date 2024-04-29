@@ -2,6 +2,9 @@ package Java;
 
 public class lessons1 {
    public static void main(String[] args) {
-        System.out.println("goodbuy");
+      int a = 123;
+      // a = a-- - --a;  
+      System.out.println(a-- - --a);
    } 
 }
+
