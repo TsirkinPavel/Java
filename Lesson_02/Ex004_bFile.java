@@ -93,7 +93,7 @@ public class Ex004_bFile {
         try {
             add("key1", "значение 1");
             add("key2", "значение 2");
-            add("key4", "значение 3");
+            add("key3", "значение 3");
             saveFile(file);
         } catch (Exception e) {
             e.printStackTrace();

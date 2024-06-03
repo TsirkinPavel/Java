@@ -1,4 +1,4 @@
-package Lesson_02;
+package Lesson_02; //код лежал в папке Lesson_02, изменить
 import java.io.IOException;
 import java.util.logging.*;
 
