@@ -1,8 +1,6 @@
 package Homework;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Objects;
 
 public class User {
@@ -14,10 +12,7 @@ public class User {
 
     protected LocalDate birthDate;
 
-    // public HashMap<User, ArrayList<Integer>> phoneBook = new HashMap<>();
-    // public ArrayList<Integer> phones = new ArrayList<>();
-
-
+    
     public User(Long id, String firstName, String lastName, LocalDate birthDate) {
         this.id = id;
         this.firstName = firstName;

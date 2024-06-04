@@ -9,8 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import Homework.*;
-import Homework.Phonebook;
+
 
 public class Main6 {
 
@@ -37,6 +36,8 @@ public class Main6 {
         System.out.println(book.find(user2));
         book.delNum(user2, 34890500);
         book.add(user3, 333333333);
+
+        System.out.println(book.getPhoneBook());
         
         Map<String, List<Integer>> map = new HashMap<>();
         map.put(user1.toString(), book.find(user1));
@@ -51,6 +52,7 @@ public class Main6 {
             (v1, v2) -> v1,
             LinkedHashMap::new 
         ));
+        
         System.out.println(sortedMap);
 
     }
