@@ -1,74 +1,40 @@
 package Homework;
 
-
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import Homework.*;
+import Homework.Phonebook;
+
 public class Main6 {
-    private static HashMap<String, ArrayList<Integer>> phoneBook = new HashMap<>();
-    private static ArrayList<Integer> phones = new ArrayList<>();
-        public void add(String name, Integer phoneNum) {
-    
-    // Введите свое решение ниже
-          if (phoneBook.containsKey(name)) {
-                phones = phoneBook.get(name);
-                phones.add(phoneNum);
-                phoneBook.put(name, phones);
-            } else {            
-            ArrayList<Integer> temp = new ArrayList<>();    
-            phoneBook.put(name, temp);
-                phoneBook.get(name);
-                temp.add(phoneNum);
-    
-            }
-    
-    }
-    
-        public ArrayList<Integer> find(String name) {
-    // Введите свое решение ниже
-    if (phoneBook.get(name) == null){
-      ArrayList<Integer> arr = new ArrayList<>();
-      return arr;
-    }else{
-          return phoneBook.get(name);
-    }
-    }
-    
-        public static HashMap<String, ArrayList<Integer>> getPhoneBook() {
-    // Введите свое решение ниже
-    return phoneBook;
-        }
-    }
-    // Не удаляйте этот класс - он нужен для 
-      
+
     public static void main(String[] args) {
-        String name1;
-        String name2;
-        int phone1;
-        int phone2;
+        User user1 = new User(1L, "Ivan", "Ivanov", LocalDate.of(2000, 1, 10));
+        User user2 = new User(2L, "Pavel", "Sergeev", LocalDate.of(2001, 3, 13));
+        User user3 = new User(3L, "Sergey", "Sidorov", LocalDate.of(2002, 5, 15));
 
-        if (args.length == 0) {
-            name1 = "Ivanov";
-            name2 = "Petrov";
-            phone1 = 123456;
-            phone2 = 654321;
-                      
-        } else {
-            name1 = args[0];
-            name2 = args[1];
-            phone1 = Integer.parseInt(args[2]);
-            phone2 = Integer.parseInt(args[3]);
-        }
+        List<User> users = new ArrayList<>();
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+        
+        System.out.println(users);
+        Phonebook book = new Phonebook(0);
+        book.add(user2, 34890560);
+        book.add(user2, 34890525);
+        book.add(user2, 34890500);
+        book.add(user3, 10000000);
+        book.add(user3, 10000001);
+        book.add(user1, 22222222);
 
-        homework6 myPhoneBook = new homework6();
-        myPhoneBook.add(name1, phone1);
-        myPhoneBook.add(name1, phone2);
-        myPhoneBook.add(name2, phone2);
+        System.out.println(book.getPhoneBook());
+        System.out.println(book.find(user2));
+        book.delNum(user2, 34890500);
+        book.add(user1, 333333333);
+        System.out.println(book.getPhoneBook());
 
-        System.out.println(myPhoneBook.find(name1));
-        System.out.println(homework6.getPhoneBook());
-        System.out.println(myPhoneBook.find("Me"));
     }
-
+}
