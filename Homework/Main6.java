@@ -2,9 +2,12 @@ package Homework;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import Homework.*;
 import Homework.Phonebook;
@@ -26,15 +29,29 @@ public class Main6 {
         book.add(user2, 34890560);
         book.add(user2, 34890525);
         book.add(user2, 34890500);
-        book.add(user3, 10000000);
-        book.add(user3, 10000001);
+        book.add(user2, 66666666);
+        book.add(user3, 10000000);        
         book.add(user1, 22222222);
 
         System.out.println(book.getPhoneBook());
         System.out.println(book.find(user2));
         book.delNum(user2, 34890500);
-        book.add(user1, 333333333);
-        System.out.println(book.getPhoneBook());
+        book.add(user3, 333333333);
+        
+        Map<String, List<Integer>> map = new HashMap<>();
+        map.put(user1.toString(), book.find(user1));
+        map.put(user2.toString(), book.find(user2));
+        map.put(user3.toString(), book.find(user3));
+        Map<String, List<Integer>> sortedMap = map.entrySet()
+        .stream() 
+        .sorted(Comparator.comparingInt(entry -> entry.getValue().size()))         
+        .collect(Collectors.toMap( 
+            Map.Entry::getKey, 
+            Map.Entry::getValue, 
+            (v1, v2) -> v1,
+            LinkedHashMap::new 
+        ));
+        System.out.println(sortedMap);
 
     }
 }
